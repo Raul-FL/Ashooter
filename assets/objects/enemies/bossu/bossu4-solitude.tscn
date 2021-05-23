@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/enemies/sample_boss.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu4a.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu5.tres" type="Texture" id=3]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/multipleshot_bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/charge_beam.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sounds/sfx/AudioStreamPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 14.0357
+
+[node name="solitude" type="Area2D" groups=[
+"enemy",
+"boss",
+]]
+script = ExtResource( 1 )
+hp = 110
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 9, 10 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 9, -1 )
+shape = SubResource( 2 )
+
+[node name="multipleshot_bullet" parent="." instance=ExtResource( 4 )]
+position = Vector2( -5, 0 )
+shoot = ExtResource( 5 )
+angle = 30.0
+start_wait_time = 4.0
+
+[node name="wave_movement" parent="." instance=ExtResource( 6 )]
+wave_lenght = 30
+wave_speed = 7.0
+
+[node name="charge_beam" parent="." instance=ExtResource( 7 )]
+position = Vector2( -6, -1 )
+
+[node name="wait_time_to_stop" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 8 )]
+script = ExtResource( 9 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_ojehti_tree_exiting"]
+[connection signal="timeout" from="wait_time_to_stop" to="." method="_on_wait_time_to_stop_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
+
+[editable path="charge_beam"]

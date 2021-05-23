@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/lazers.js-4b9d07a522c4befac089140e8db6a78f.res"
+
+[deps]
+
+files=[ "res://assets/sprites/weapons/lazers.sprites/lazer.tres", "res://assets/sprites/weapons/lazers.sprites/lazer_night.tres" ]
+
+source_file="res://assets/sprites/weapons/lazers.js"
+dest_files=[ "res://.import/lazers.js-4b9d07a522c4befac089140e8db6a78f.res", "res://assets/sprites/weapons/lazers.sprites/lazer.tres", "res://assets/sprites/weapons/lazers.sprites/lazer_night.tres" ]
+
+[params]
+

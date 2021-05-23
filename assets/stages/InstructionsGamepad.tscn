@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/HUD/Instructions.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/ashooterpixelfon.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/HUD/arrows.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/intro/gamepad/a.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/intro/gamepad/b.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/intro/gamepad/lb.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/intro/gamepad/rb.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/intro/gamepad/start.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/intro/Sprite-0008.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+extra_spacing_bottom = 2
+extra_spacing_space = -1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+extra_spacing_space = -1
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 159.0
+margin_bottom = 313.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 0.862745, 0.623529, 1 )
+text = "INSTRUCTIONS
+
+       
+
+
+
+
+
+
+PRESS      TO EXIT"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 108.0
+margin_top = 11.0
+margin_right = 264.0
+margin_bottom = 323.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.792157, 0.862745, 0.623529, 1 )
+text = "GAMEPAD"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 161.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 0.862745, 0.623529, 1 )
+text = "
+
+  Z    
+  X    
+  A    
+  S    
+ 
+
+
+
+
+
+"
+
+[node name="arrows" type="Sprite" parent="."]
+position = Vector2( 4.25, 30.6 )
+scale = Vector2( 0.945652, 0.8 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 15, 47 )
+texture = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 15, 61 )
+texture = ExtResource( 5 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 39, 134 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 15, 75 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 15, 88 )
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 32, 103 )
+texture = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 22.0
+margin_top = 99.0
+margin_right = 67.0
+margin_bottom = 112.0
+color = Color( 0.0588235, 0.219608, 0.0588235, 1 )
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 12.0
+margin_right = 188.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 0.862745, 0.623529, 1 )
+text = "
+MOVEMENT
+SHOOT
+SPECIAL WEAPON
+SWITCH SPECIAL WEAPON LEFT
+SWITCH SPECIAL WEAPON RIGHT
+PAUSE
+
+
+
+
+
+"
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 149, 18 )
+texture = ExtResource( 9 )
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 102, 18 )
+texture = ExtResource( 9 )
+flip_h = true

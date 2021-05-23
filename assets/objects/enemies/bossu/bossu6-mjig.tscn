@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/enemies/sample_boss.gd" type="Script" id=1]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/timer_straight_shot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/enemies/dovront.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/mnijng_big1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/mnijng_big2.png" type="Texture" id=5]
+[ext_resource path="res://assets/objects/enemies/mitmat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/multipleshot_bullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/schiniwni.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sounds/sfx/AudioStreamPlayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="solitude" type="Area2D" groups=[
+"enemy",
+"boss",
+]]
+script = ExtResource( 1 )
+hp = 60
+
+[node name="timer_straight_shot2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -20, 0 )
+shoot = ExtResource( 3 )
+wave_shoot = true
+
+[node name="wait_timer" parent="timer_straight_shot2" index="0"]
+wait_time = 3.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -22, -7, -13, 0, -19, 6 )
+
+[node name="timer_straight_shot" parent="." instance=ExtResource( 2 )]
+position = Vector2( -20, 0 )
+shoot = ExtResource( 6 )
+
+[node name="wait_timer" parent="timer_straight_shot" index="0"]
+wait_time = 7.0
+
+[node name="multipleshot_bullet" parent="." instance=ExtResource( 7 )]
+position = Vector2( -19, 4 )
+rotation = -0.261799
+shoot = ExtResource( 8 )
+start_wait_time = 7.0
+shot_type = 0
+
+[node name="wait_timer" parent="multipleshot_bullet" index="0"]
+wait_time = 3.0
+
+[node name="multipleshot_bullet3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -19, -5 )
+rotation = 0.261799
+shoot = ExtResource( 8 )
+shot_count = 4
+start_wait_time = 7.0
+shot_type = 0
+
+[node name="multipleshot_bullet4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -19, 4 )
+rotation = -0.261799
+shoot = ExtResource( 8 )
+start_wait_time = 7.0
+shot_type = 0
+
+[node name="wait_time_to_stop" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="wave_movement" parent="." instance=ExtResource( 9 )]
+wave_lenght = 30
+wave_speed = 2.0
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 10 )]
+script = ExtResource( 11 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_ojehti_tree_exiting"]
+[connection signal="timeout" from="wait_time_to_stop" to="." method="_on_wait_time_to_stop_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
+
+[editable path="timer_straight_shot2"]
+
+[editable path="timer_straight_shot"]
+
+[editable path="multipleshot_bullet"]

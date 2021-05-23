@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/enemies/sample_enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/enemies/sample_enemy1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/sample_enemy.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sfx/5_enemyexplosion.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=5]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="sample_enemy" type="Area2D" groups=[
+"enemy",
+]]
+position = Vector2( 129, 56 )
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, 0 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -4, -5 )
+polygon = PoolVector2Array( 0, 1, 7, 1, 7, 10, 0, 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -16.808
+script = ExtResource( 5 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

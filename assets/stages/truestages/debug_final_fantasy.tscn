@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/objects/HUD/HUD_night.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/HUD/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/player/obj_spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/stages/final_stage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/enemy_spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu3-cerberus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu6-mjig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu4-solitude.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/bossu/finalboss-monster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/globals/staph.gd" type="Script" id=10]
+
+[node name="Node2D" type="Node2D" groups=[
+"room",
+]]
+__meta__ = {
+"_edit_horizontal_guides_": [ 18.8513 ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Player_layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="pause" parent="." instance=ExtResource( 2 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28, 48 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="enemy_spawner3" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 5 )]
+position = Vector2( 180, 80 )
+speed = 30
+enemy = ExtResource( 6 )
+
+[node name="enemy_spawner4" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 5 )]
+position = Vector2( 526, 79 )
+speed = 30
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner5" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 5 )]
+position = Vector2( 641, 79 )
+speed = 30
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner6" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 5 )]
+position = Vector2( 726, -1 )
+speed = 10
+enemy = ExtResource( 9 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="staph" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 738, -36 )
+script = ExtResource( 10 )
+
+[node name="staph4" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 211, 66 )
+script = ExtResource( 10 )
+
+[node name="staph5" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 546, 72 )
+script = ExtResource( 10 )
+
+[node name="staph7" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 656, 69 )
+script = ExtResource( 10 )
+
+[editable path="HUD"]

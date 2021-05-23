@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/enemies/sample_boss.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu3a.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu4.tres" type="Texture" id=3]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/timer_straight_shot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_hoaming_missile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sounds/sfx/AudioStreamPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[node name="cerberus" type="Area2D" groups=[
+"enemy",
+"boss",
+]]
+script = ExtResource( 1 )
+hp = 60
+score = 200
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 7, 16, 3, 20, -3, 22, -6, 22, -9, 19, -9, 17, -8, 17, -5, 19, -4, 11, -9, 13, -9, 11, -6, 8, -3, 8, 3, 10, 6, 5, 3, 3, -5, 1, -15, 6, -20, 3, -20, 0, -15, 3, -12, 3, -16, 0, -12, -5, -15, -5, -20, -3, -17, -8, -2, -7, -5, -10, -5, -18, 0, -21 )
+
+[node name="timer_straight_shot" parent="." instance=ExtResource( 4 )]
+position = Vector2( -4, -16 )
+shoot = ExtResource( 5 )
+speed = 35
+
+[node name="wait_timer" parent="timer_straight_shot" index="0"]
+wait_time = 4.0
+
+[node name="timer_straight_shot2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -20, -4 )
+shoot = ExtResource( 5 )
+speed = 35
+
+[node name="wait_timer" parent="timer_straight_shot2" index="0"]
+wait_time = 4.0
+
+[node name="timer_straight_shot3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -9, 12 )
+shoot = ExtResource( 5 )
+speed = 35
+
+[node name="wait_timer" parent="timer_straight_shot3" index="0"]
+wait_time = 4.0
+
+[node name="wave_movement" parent="." instance=ExtResource( 6 )]
+wave_lenght = 30
+wave_speed = 4.0
+
+[node name="wait_time_to_stop" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_cerberus_tree_exiting"]
+[connection signal="timeout" from="wait_time_to_stop" to="." method="_on_wait_time_to_stop_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
+
+[editable path="timer_straight_shot"]
+
+[editable path="timer_straight_shot2"]
+
+[editable path="timer_straight_shot3"]

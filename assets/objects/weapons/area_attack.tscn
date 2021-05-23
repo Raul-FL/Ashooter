@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/weapons/big_fireball.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/weapons/weapons.sprites/area_attack_night.tres" type="Texture" id=2]
+[ext_resource path="res://assets/objects/weapons/area_attack_spin.tres" type="Animation" id=3]
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "spin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "spin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+
+[node name="area_attack" type="Node2D"]
+
+[node name="fireball0" type="Area2D" parent="."]
+position = Vector2( 22, -6 )
+script = ExtResource( 1 )
+dir_x = 1.0
+dir_y = -1.0
+
+[node name="Sprite" type="Sprite" parent="fireball0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fireball0"]
+polygon = PoolVector2Array( -11, -11, 11, -11, 11, 11, -11, 11 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="fireball0"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fireball0"]
+autoplay = "spin"
+anims/spin = SubResource( 1 )
+
+[node name="fireball1" type="Area2D" parent="."]
+position = Vector2( 26, 0 )
+script = ExtResource( 1 )
+dir_x = 1.0
+dir_y = -0.25
+
+[node name="Sprite" type="Sprite" parent="fireball1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fireball1"]
+polygon = PoolVector2Array( -11, -11, 11, -11, 11, 11, -11, 11 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="fireball1"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fireball1"]
+autoplay = "spin"
+anims/spin = SubResource( 2 )
+
+[node name="fireball2" type="Area2D" parent="."]
+position = Vector2( 26, 17 )
+script = ExtResource( 1 )
+dir_x = 1.0
+dir_y = 0.25
+
+[node name="Sprite" type="Sprite" parent="fireball2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fireball2"]
+polygon = PoolVector2Array( -11, -11, 11, -11, 11, 11, -11, 11 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="fireball2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fireball2"]
+autoplay = "spin"
+anims/spin = SubResource( 3 )
+
+[node name="fireball3" type="Area2D" parent="."]
+position = Vector2( 22, 21 )
+script = ExtResource( 1 )
+dir_x = 1.0
+dir_y = 1.0
+
+[node name="Sprite" type="Sprite" parent="fireball3"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fireball3"]
+polygon = PoolVector2Array( -11, -11, 11, -11, 11, 11, -11, 11 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="fireball3"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fireball3"]
+autoplay = "spin"
+anims/spin = ExtResource( 3 )
+[connection signal="viewport_exited" from="fireball0/VisibilityNotifier2D" to="fireball0" method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="viewport_exited" from="fireball1/VisibilityNotifier2D" to="fireball1" method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="viewport_exited" from="fireball2/VisibilityNotifier2D" to="fireball2" method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="viewport_exited" from="fireball3/VisibilityNotifier2D" to="fireball3" method="_on_VisibilityNotifier2D_viewport_exited"]

@@ -1,0 +1,377 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/objects/HUD/HUD_night.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/HUD/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/player/obj_spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/stages/truestages/stage3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/stages/Stage2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/globals/pathfollow.gd" type="Script" id=6]
+[ext_resource path="res://assets/objects/enemy_spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/timer_straight_shot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/enemies/jnuk.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/enemies/dovront.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/enemies/mazrat.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/enemies/pathfollow_enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/enemies/prinmnz.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu2-maut.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/globals/staph.gd" type="Script" id=17]
+[ext_resource path="res://assets/objects/stagelabel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/objects/stage_clear.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/items/missile_up.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/objects/items/super_nova_up.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/objects/items/lazer_up.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/objects/items/heart_up.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/sounds/ost/stage4.ogg" type="AudioStream" id=24]
+
+[node name="Node2D" type="Node2D" groups=[
+"room",
+]]
+__meta__ = {
+"_edit_horizontal_guides_": [ 18.8513 ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Player_layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+
+[node name="pause" parent="." instance=ExtResource( 2 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28, 48 )
+nextScene = ExtResource( 4 )
+
+[node name="Stage2" parent="." groups=[
+"stage",
+] instance=ExtResource( 5 )]
+script = ExtResource( 6 )
+scroll_speed = 10
+
+[node name="ParallaxLayer" parent="Stage2/ParallaxBackground" index="0"]
+scroll_speed = 10
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 191.599, 32.2952 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner3" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 169.031, 91.3369 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner2" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 212.069, 56.1281 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner8" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 286.035, 22.9504 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner4" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 255.836, 37.3155 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner6" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 249.836, 58.3155 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner7" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 215.836, 105.316 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner5" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 271.724, 83.7898 )
+dir_shot = true
+shot_type = 2
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+enemy = ExtResource( 10 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 348.36, 43.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner5" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 384.36, 89.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner2" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 378.36, 43.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner6" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 414.36, 89.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner3" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 393.36, 43.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner7" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 429.36, 89.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner4" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 363.36, 43.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner8" parent="Node2D2" instance=ExtResource( 7 )]
+position = Vector2( 399.36, 89.3742 )
+wave_lenght = 15
+wave_speed = 2.0
+inverted = true
+SHOT = ExtResource( 8 )
+BULLET = ExtResource( 9 )
+BEHAVIOR = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="Node2D3" instance=ExtResource( 7 )]
+position = Vector2( 450.004, 32.1361 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner2" parent="Node2D3" instance=ExtResource( 7 )]
+position = Vector2( 468.004, 92.1361 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner3" parent="Node2D3" instance=ExtResource( 7 )]
+position = Vector2( 493.004, 73.1361 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner4" parent="Node2D3" instance=ExtResource( 7 )]
+position = Vector2( 479.004, 43.1361 )
+enemy = ExtResource( 13 )
+
+[node name="Path2D" parent="." instance=ExtResource( 14 )]
+position = Vector2( 410.433, 2.88006 )
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+dir_shot = true
+shot_speed = 18
+shot_count = 15
+angle = 30.0
+
+[node name="Path2D2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 855.433, -3.11994 )
+
+[node name="PathFollow2D" parent="Path2D2" index="0"]
+dir_shot = true
+shot_speed = 18
+shot_count = 15
+angle = 30.0
+
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="Node2D4" instance=ExtResource( 7 )]
+position = Vector2( 717.573, 33.5194 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner2" parent="Node2D4" instance=ExtResource( 7 )]
+position = Vector2( 729.277, 48.1497 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner3" parent="Node2D4" instance=ExtResource( 7 )]
+position = Vector2( 732.203, 55.9525 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner4" parent="Node2D4" instance=ExtResource( 7 )]
+position = Vector2( 707.819, 85.2132 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner5" parent="Node2D4" instance=ExtResource( 7 )]
+position = Vector2( 727.326, 104.233 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="Node2D5" type="Node2D" parent="."]
+
+[node name="enemy_spawner7" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 821.188, 70.8395 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner8" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 858.92, 62.1981 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner9" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 867.134, 76.0584 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner10" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 896.906, 46.8831 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner12" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 907.686, 102.324 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner11" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 903.066, 39.1829 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner13" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 913.846, 94.6242 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner6" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 808.181, 44.7453 )
+speed = 15
+enemy = ExtResource( 15 )
+
+[node name="enemy_spawner" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 788.002, 33.0004 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner2" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 806.448, 96.6054 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner3" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 843.58, 39.0244 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner4" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 851.28, 99.0858 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner5" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 927.254, 66.8304 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner14" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 947.618, 39.9657 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner15" parent="Node2D5" instance=ExtResource( 7 )]
+position = Vector2( 965.586, 98.487 )
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1080.06, 72.8274 )
+speed = 30
+stage_clear = true
+enemy = ExtResource( 16 )
+
+[node name="staph" type="Position2D" parent="."]
+position = Vector2( 1114, 118 )
+script = ExtResource( 17 )
+
+[node name="Label2" parent="." instance=ExtResource( 18 )]
+text = "STAGE 2"
+stage = 1
+
+[node name="Label" parent="." instance=ExtResource( 19 )]
+
+[node name="missile_up" parent="." instance=ExtResource( 20 )]
+position = Vector2( 331, 65 )
+
+[node name="super_nova_up" parent="." instance=ExtResource( 21 )]
+position = Vector2( 772, 93 )
+
+[node name="power_up" parent="." instance=ExtResource( 22 )]
+position = Vector2( 910, 60 )
+
+[node name="heart_up" parent="." instance=ExtResource( 23 )]
+position = Vector2( 555, 72 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = 4.0
+autoplay = true
+
+[editable path="HUD"]
+
+[editable path="Stage2"]
+
+[editable path="Stage2/ParallaxBackground"]
+
+[editable path="Path2D"]
+
+[editable path="Path2D2"]

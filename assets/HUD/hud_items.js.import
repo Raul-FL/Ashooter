@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/hud_items.js-f0028be1640f5e2bc1d29b435ce427af.res"
+
+[deps]
+
+files=[ "res://assets/HUD/hud_items.sprites/area_shot_icon.tres", "res://assets/HUD/hud_items.sprites/heart.tres", "res://assets/HUD/hud_items.sprites/hoaming_missil_icon.tres", "res://assets/HUD/hud_items.sprites/hoaming_shield.tres", "res://assets/HUD/hud_items.sprites/lazer_icon.tres", "res://assets/HUD/hud_items.sprites/life.tres", "res://assets/HUD/hud_items.sprites/score.tres", "res://assets/HUD/hud_items.sprites/shield.tres", "res://assets/HUD/hud_items.sprites/shield_bar_empty.tres", "res://assets/HUD/hud_items.sprites/shield_bar_full.tres", "res://assets/HUD/hud_items.sprites/super_duper_icon.tres" ]
+
+source_file="res://assets/HUD/hud_items.js"
+dest_files=[ "res://.import/hud_items.js-f0028be1640f5e2bc1d29b435ce427af.res", "res://assets/HUD/hud_items.sprites/area_shot_icon.tres", "res://assets/HUD/hud_items.sprites/heart.tres", "res://assets/HUD/hud_items.sprites/hoaming_missil_icon.tres", "res://assets/HUD/hud_items.sprites/hoaming_shield.tres", "res://assets/HUD/hud_items.sprites/lazer_icon.tres", "res://assets/HUD/hud_items.sprites/life.tres", "res://assets/HUD/hud_items.sprites/score.tres", "res://assets/HUD/hud_items.sprites/shield.tres", "res://assets/HUD/hud_items.sprites/shield_bar_empty.tres", "res://assets/HUD/hud_items.sprites/shield_bar_full.tres", "res://assets/HUD/hud_items.sprites/super_duper_icon.tres" ]
+
+[params]
+

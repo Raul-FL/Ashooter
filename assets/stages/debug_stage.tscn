@@ -1,0 +1,446 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/objects/HUD/HUD_night.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/HUD/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/player/obj_spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/stages/truestages/stage2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/stages/defaultbg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemy_spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/sample_enemy_spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/schiniwni.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/timer_straight_shot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/enemies/azvoult.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/enemies/zvoak.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/enemies/prinmnz.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu1-o'jehti.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/globals/staph.gd" type="Script" id=16]
+[ext_resource path="res://assets/fonts/Early GameBoy.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://assets/objects/stagelabel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/objects/items/lazer_up.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/items/super_nova_up.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/objects/items/missile_up.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/sounds/ost/stageum-01.ogg" type="AudioStream" id=22]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+font_data = ExtResource( 17 )
+
+[node name="Node2D" type="Node2D" groups=[
+"room",
+]]
+
+[node name="Player_layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="pause" parent="." instance=ExtResource( 2 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28, 48 )
+nextScene = ExtResource( 4 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
+
+[node name="ParallaxLayer" parent="ParallaxBackground" index="0"]
+scroll_speed = 10
+
+[node name="first_hord" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 173.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner12" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 205.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner2" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 183.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner10" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 215.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner3" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 193.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner11" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 225.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner4" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 203.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner9" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 235.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner5" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 213.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner8" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 245.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner6" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 223.361, 30.8812 )
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner7" parent="first_hord" instance=ExtResource( 6 )]
+position = Vector2( 255.361, 130.881 )
+enemy = ExtResource( 7 )
+
+[node name="wave_hord1" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner13" parent="wave_hord1" instance=ExtResource( 6 )]
+position = Vector2( 220.77, 78.4658 )
+wave_lenght = 30
+wave_speed = 2.0
+BEHAVIOR = ExtResource( 8 )
+enemy = ExtResource( 9 )
+
+[node name="enemy_spawner14" parent="wave_hord1" instance=ExtResource( 6 )]
+position = Vector2( 240.77, 78.4658 )
+wave_lenght = 30
+wave_speed = 2.0
+BEHAVIOR = ExtResource( 8 )
+enemy = ExtResource( 9 )
+
+[node name="enemy_spawner15" parent="wave_hord1" instance=ExtResource( 6 )]
+position = Vector2( 250.77, 78.4658 )
+wave_lenght = 30
+wave_speed = 2.0
+BEHAVIOR = ExtResource( 8 )
+enemy = ExtResource( 9 )
+
+[node name="enemy_spawner16" parent="wave_hord1" instance=ExtResource( 6 )]
+position = Vector2( 260.77, 78.4658 )
+wave_lenght = 30
+wave_speed = 2.0
+BEHAVIOR = ExtResource( 8 )
+enemy = ExtResource( 9 )
+
+[node name="enemy_spawner17" parent="wave_hord1" instance=ExtResource( 6 )]
+position = Vector2( 230.77, 78.4658 )
+wave_lenght = 30
+wave_speed = 2.0
+BEHAVIOR = ExtResource( 8 )
+enemy = ExtResource( 9 )
+
+[node name="shooter_hord" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner18" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 295.793, 27.686 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner20" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 326.833, 52.2404 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner23" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 302.742, 65.6759 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner21" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 345.365, 88.3772 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner24" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 311.081, 102.739 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner22" parent="shooter_hord" instance=ExtResource( 6 )]
+position = Vector2( 347.681, 120.344 )
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="zvoak_hord" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner25" parent="zvoak_hord" instance=ExtResource( 6 )]
+position = Vector2( 400.555, 34.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner26" parent="zvoak_hord" instance=ExtResource( 6 )]
+position = Vector2( 416.555, 34.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner29" parent="zvoak_hord" instance=ExtResource( 6 )]
+position = Vector2( 431.555, 34.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner27" parent="zvoak_hord" instance=ExtResource( 6 )]
+position = Vector2( 368.555, 34.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner28" parent="zvoak_hord" instance=ExtResource( 6 )]
+position = Vector2( 384.555, 34.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="zvoak_hord2" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner25" parent="zvoak_hord2" instance=ExtResource( 6 )]
+position = Vector2( 443.555, 120.098 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner26" parent="zvoak_hord2" instance=ExtResource( 6 )]
+position = Vector2( 459.555, 120.098 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner29" parent="zvoak_hord2" instance=ExtResource( 6 )]
+position = Vector2( 472.555, 120.098 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner27" parent="zvoak_hord2" instance=ExtResource( 6 )]
+position = Vector2( 411.555, 120.098 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner28" parent="zvoak_hord2" instance=ExtResource( 6 )]
+position = Vector2( 427.555, 120.098 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="zvoak_hord4" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner25" parent="zvoak_hord4" instance=ExtResource( 6 )]
+position = Vector2( 497.555, 93.0984 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner26" parent="zvoak_hord4" instance=ExtResource( 6 )]
+position = Vector2( 513.555, 93.0984 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner29" parent="zvoak_hord4" instance=ExtResource( 6 )]
+position = Vector2( 529.555, 93.0984 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner27" parent="zvoak_hord4" instance=ExtResource( 6 )]
+position = Vector2( 465.555, 93.0984 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner28" parent="zvoak_hord4" instance=ExtResource( 6 )]
+position = Vector2( 481.555, 93.0984 )
+speed = 30
+angle = 20.0
+enemy = ExtResource( 13 )
+
+[node name="zvoak_hord3" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner29" parent="zvoak_hord3" instance=ExtResource( 6 )]
+position = Vector2( 467.555, 61.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner32" parent="zvoak_hord3" instance=ExtResource( 6 )]
+position = Vector2( 483.555, 61.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner33" parent="zvoak_hord3" instance=ExtResource( 6 )]
+position = Vector2( 496.555, 61.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner30" parent="zvoak_hord3" instance=ExtResource( 6 )]
+position = Vector2( 435.555, 61.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="enemy_spawner31" parent="zvoak_hord3" instance=ExtResource( 6 )]
+position = Vector2( 451.555, 61.0984 )
+speed = 30
+angle = -20.0
+enemy = ExtResource( 13 )
+
+[node name="zvoak_hord5" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner30" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 551.555, 33.0984 )
+speed = 15
+angle = -20.0
+shot_interval = 2
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner33" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 574.702, 33.3465 )
+speed = 15
+angle = -20.0
+shot_interval = 2
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner34" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 599.018, 33.8883 )
+speed = 15
+angle = -20.0
+shot_interval = 2
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner35" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 600.408, 123.235 )
+speed = 15
+angle = 20.0
+shot_interval = 2
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner31" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 551.555, 123.098 )
+speed = 15
+angle = 20.0
+shot_interval = 3
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner32" parent="zvoak_hord5" instance=ExtResource( 6 )]
+position = Vector2( 576.092, 123.557 )
+speed = 15
+angle = 20.0
+shot_interval = 2
+initial_wait_time = 0
+SHOT = ExtResource( 10 )
+BULLET = ExtResource( 11 )
+enemy = ExtResource( 12 )
+
+[node name="primmzhord" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 646.207, 39.1372 )
+speed = 30
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner3" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 668.734, 51.752 )
+speed = 15
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner5" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 668.734, 97.752 )
+speed = 15
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner4" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 679.349, 59.713 )
+speed = 15
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner6" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 679.349, 105.713 )
+speed = 15
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner2" parent="primmzhord" instance=ExtResource( 6 )]
+position = Vector2( 652.12, 131.405 )
+speed = 30
+enemy = ExtResource( 14 )
+
+[node name="enemy_spawner7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 725.109, 91.0855 )
+speed = 30
+shot_type = 0
+stage_clear = true
+enemy = ExtResource( 15 )
+
+[node name="staph" type="Position2D" parent="."]
+position = Vector2( 762.138, 94.8304 )
+script = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = 68.0
+margin_right = 150.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 1 )
+text = "STAGE CLEAR"
+
+[node name="Label2" parent="." instance=ExtResource( 18 )]
+
+[node name="power_up" parent="." instance=ExtResource( 19 )]
+position = Vector2( 282.002, 57.0009 )
+
+[node name="super_nova_up" parent="." instance=ExtResource( 20 )]
+position = Vector2( 405.003, 79.001 )
+
+[node name="missile_up" parent="." instance=ExtResource( 21 )]
+position = Vector2( 619.004, 88.001 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = 2.101
+autoplay = true
+
+[editable path="HUD"]
+
+[editable path="ParallaxBackground"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/objects/enemies/sample_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/enemies/enemies_sheit.sprites/guajurepa.tres" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="guajurepa" index="0" instance=ExtResource( 1 )]
+hp = 10
+score = 15
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -18, 5, -1, 5, 5, 0, 10, 1, 25, -13, 10, 3, 10, 7, 25, 23, 10, 9, 5, 10, -1, 6, -18, 6 )

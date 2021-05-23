@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stagetres-01.ogg-41912a04e123b93c5f966dd8e1857b6e.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/ost/stagetres-01.ogg"
+dest_files=[ "res://.import/stagetres-01.ogg-41912a04e123b93c5f966dd8e1857b6e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

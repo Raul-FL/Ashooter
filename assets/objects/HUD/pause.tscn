@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/HUD/pause.gd" type="Script" id=1]
+[ext_resource path="res://assets/HUD/pause.sprites/resume.tres" type="Texture" id=2]
+[ext_resource path="res://assets/HUD/pause.sprites/resume_reverse.png" type="Texture" id=3]
+[ext_resource path="res://assets/HUD/pause.sprites/quit.tres" type="Texture" id=4]
+[ext_resource path="res://assets/HUD/pause.sprites/qui_reverset.png" type="Texture" id=5]
+
+[node name="pause" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+margin_left = 62.0
+margin_top = 58.0
+margin_right = 102.0
+margin_bottom = 75.0
+color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = 60.0
+margin_top = 57.0
+margin_right = 101.0
+margin_bottom = 74.0
+color = Color( 0.792157, 0.862745, 0.623529, 1 )
+
+[node name="resume" type="Node2D" parent="Control"]
+
+[node name="sprite" type="Sprite" parent="Control/resume"]
+position = Vector2( 81, 62 )
+texture = ExtResource( 2 )
+
+[node name="bg" type="ColorRect" parent="Control/resume"]
+margin_left = 61.0
+margin_top = 58.0
+margin_right = 100.0
+margin_bottom = 65.0
+color = Color( 0.0588235, 0.219608, 0.0588235, 1 )
+
+[node name="sprite_selected" type="Sprite" parent="Control/resume"]
+position = Vector2( 81, 62 )
+texture = ExtResource( 3 )
+
+[node name="quit" type="Node2D" parent="Control"]
+
+[node name="sprite" type="Sprite" parent="Control/quit"]
+position = Vector2( 80, 69 )
+texture = ExtResource( 4 )
+
+[node name="bg" type="ColorRect" parent="Control/quit"]
+visible = false
+margin_left = 61.0
+margin_top = 65.0
+margin_right = 100.0
+margin_bottom = 72.0
+color = Color( 0.0588235, 0.219608, 0.0588235, 1 )
+
+[node name="sprite_selected" type="Sprite" parent="Control/quit"]
+visible = false
+position = Vector2( 80, 69 )
+texture = ExtResource( 5 )
+[connection signal="hide" from="Control" to="." method="_on_Control_hide"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/globals/background.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/stages/final_stage0.png" type="Texture" id=2]
+[ext_resource path="res://src/globals/parallax_background.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/stages/final_stagebg.png" type="Texture" id=4]
+[ext_resource path="res://assets/objects/enemies/bossu/finalboss_monster_scenario.tscn" type="PackedScene" id=5]
+
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"stage",
+]]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 925, 18, 160, 18, 0, 18, 4, 21, 19, 21, 36, 23, 49, 20, 112, 22, 153, 22, 190, 20, 210, 20, 220, 20, 230, 20, 240, 20, 250.619, 21.1875, 264.954, 20.219, 271.153, 22.5435, 277.545, 20.8001, 288.199, 23.7058, 296.529, 21.7687, 301.759, 24.2869, 314.738, 20.0253, 336.821, 20.4127, 346.894, 21.9624, 361.035, 20.4127, 390.673, 20.219, 412, 22, 425.522, 20.5803, 440.138, 22.7394, 451.597, 20.2482, 476.498, 22.361, 493.738, 19.6491, 504.005, 22.7485, 527, 22, 541.585, 20.8113, 552.045, 23.3296, 573.547, 21.9736, 592.143, 25.073, 608.415, 21.3925, 612.677, 24.6856, 627.399, 21.3925, 633.598, 23.717, 639.215, 21.3925, 644.252, 22.7485, 655.293, 21.0051, 660.33, 22.7485, 666.722, 20.6176, 670.79, 23.9107, 679.313, 20.4239, 689.968, 22.5547, 730.26, 20.8113, 757, 23, 773.651, 19.8428, 791.279, 22.7485, 806.389, 20.2302, 816.655, 22.7485, 822.079, 19.4554, 836, 21, 851, 20, 867, 22, 925, 21 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 914, 144, 0, 144, 0, 142, 29, 140, 36.918, 141.48, 56, 141, 75, 143, 97.7434, 140.899, 119, 142, 130, 137, 132.418, 141.287, 138, 141, 143.459, 140.125, 149.077, 141.868, 156.632, 139.543, 161.087, 142.062, 201, 140, 214.551, 140.512, 227, 138, 236.247, 141.868, 256, 141, 262, 138, 265.691, 140.706, 275, 142, 281, 138, 285.643, 143.224, 294.554, 139.543, 304.821, 142.837, 316, 138, 318.574, 141.287, 351, 142, 354, 138, 360.222, 142.255, 411.749, 141.481, 418, 139, 419.885, 142.449, 432.283, 141.287, 450.685, 143.224, 472.575, 138.769, 477.418, 141.868, 508, 143, 515.772, 143.03, 521.584, 139.737, 526.233, 142.643, 537.468, 142.837, 550.059, 143.03, 553.934, 138.962, 558.195, 142.837, 574.273, 142.449, 590.933, 140.899, 599, 141, 634, 142, 660, 141, 680, 140, 694.956, 142.449, 726.531, 141.093, 744.546, 142.449, 776, 141, 784, 139, 791, 143, 798, 141, 814, 142, 823, 138, 831, 141, 858, 140, 907, 140 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" groups=[
+"stage",
+]]
+motion_mirroring = Vector2( 165, 0 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 9 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="monster" parent="." instance=ExtResource( 5 )]
+position = Vector2( 924, 84 )

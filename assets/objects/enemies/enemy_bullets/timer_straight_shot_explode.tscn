@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/enemies/enemies_bullet/timer_straight_shot_explode.gd" type="Script" id=1]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sounds/sfx/15_enemybullet.wav" type="AudioStream" id=3]
+
+[node name="timer_straight_shot" type="Position2D"]
+position = Vector2( -9, 0 )
+script = ExtResource( 1 )
+shoot = ExtResource( 2 )
+dir_shoot = true
+explode_wait_time = 3
+
+[node name="wait_timer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -17.859
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/enemies/enemies_bullet/dir_shot.gd" type="Script" id=1]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=2]
+
+[node name="dir_shot" type="Position2D"]
+position = Vector2( -6, -2 )
+script = ExtResource( 1 )
+BULLET = ExtResource( 2 )

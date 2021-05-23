@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/globals/background.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/stages/stage5_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/stages/stage5_1.png" type="Texture" id=3]
+[ext_resource path="res://src/globals/parallax_background.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/stages/stage5bg.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"stage",
+]]
+script = ExtResource( 1 )
+scroll_speed = 7
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 1
+playing = true
+centered = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" groups=[
+"stage",
+]]
+motion_mirroring = Vector2( 240, 0 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2, 17 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 1000, 18, 0, 18, 0, 26, 9, 23, 16, 27, 25, 23, 31, 25, 48, 21, 56, 26, 66, 23, 72, 28, 80, 30, 89, 27, 96, 22, 105, 25, 112, 22, 132, 32, 151, 24, 161, 35, 170, 27, 183, 29, 192, 24, 201, 28, 205, 24, 209, 26, 218, 21, 221, 25, 232, 21, 245, 28, 260, 23, 268, 29, 287, 28, 300, 21, 317, 29, 337, 30, 355, 33, 385, 22, 400, 29, 416, 23, 433, 30, 450, 22, 459, 28, 472, 23, 477, 23, 481, 27, 490, 23, 506, 25, 521, 28, 530, 23, 544, 29, 561, 24, 569, 30, 580, 31, 586, 26, 593, 30, 607, 24, 614, 29, 631, 30, 638, 24, 645, 23, 653, 28, 661, 28, 672, 23, 675, 26, 679, 26, 682, 23, 685, 24, 691, 27, 703, 24, 709, 30, 717, 29, 722, 25, 726, 25, 728, 27, 734, 27, 739, 23, 742, 23, 745, 27, 760, 24, 770, 29, 781, 26, 783, 23, 798, 28, 809, 23, 813, 23, 817, 26, 821, 26, 828, 24, 833, 26, 842, 26, 847, 23, 850, 23, 854, 28, 870, 27, 875, 23, 883, 28, 895, 24, 900, 27, 905, 23, 909, 23, 914, 26, 924, 23, 930, 23, 933, 26, 936, 26, 942, 22, 948, 27, 952, 24, 958, 25, 961, 27, 967, 23, 972, 28, 978, 24, 985, 24, 993, 27, 996, 27, 1000, 23 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, 162 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 1000, 18, 0, 18, 0, 26, 9, 23, 16, 27, 25, 23, 31, 25, 48, 21, 56, 26, 66, 23, 72, 28, 80, 30, 89, 27, 96, 22, 105, 25, 112, 22, 132, 32, 151, 24, 161, 35, 170, 27, 183, 29, 192, 24, 201, 28, 205, 24, 209, 26, 218, 21, 221, 25, 232, 21, 245, 28, 260, 23, 268, 29, 287, 28, 300, 21, 317, 29, 337, 30, 355, 33, 385, 22, 400, 29, 416, 23, 433, 30, 450, 22, 459, 28, 472, 23, 477, 23, 481, 27, 490, 23, 506, 25, 521, 28, 530, 23, 544, 29, 561, 24, 569, 30, 580, 31, 586, 26, 593, 30, 607, 24, 614, 29, 631, 30, 638, 24, 645, 23, 653, 28, 661, 28, 672, 23, 675, 26, 679, 26, 682, 23, 685, 24, 691, 27, 703, 24, 709, 30, 717, 29, 722, 25, 726, 25, 728, 27, 734, 27, 739, 23, 742, 23, 745, 27, 760, 24, 770, 29, 781, 26, 783, 23, 798, 28, 809, 23, 813, 23, 817, 26, 821, 26, 828, 24, 833, 26, 842, 26, 847, 23, 850, 23, 854, 28, 870, 27, 875, 23, 883, 28, 895, 24, 900, 27, 905, 23, 909, 23, 914, 26, 924, 23, 930, 23, 933, 26, 936, 26, 942, 22, 948, 27, 952, 24, 958, 25, 961, 27, 967, 23, 972, 28, 978, 24, 985, 24, 993, 27, 996, 27, 1000, 23 )

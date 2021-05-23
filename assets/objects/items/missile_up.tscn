@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/items/missile_up.gd" type="Script" id=1]
+[ext_resource path="res://assets/HUD/hud_items_night.sprites/missile.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/sfx/power_up.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=4]
+
+[node name="missile_up" type="Area2D" groups=[
+"item",
+]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -5, 3, -5, -4, 5, -4, 5, 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -5.0
+margin_top = -4.0
+margin_right = 5.0
+margin_bottom = 3.0
+color = Color( 0.792157, 0.862745, 0.623529, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+[connection signal="area_entered" from="." to="." method="_on_super_nova_up_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

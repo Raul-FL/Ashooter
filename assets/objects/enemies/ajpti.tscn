@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/enemies/sample_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/enemies/enemies_sheit.sprites/ajpti0.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/enemies_sheit.sprites/ajpti1.tres" type="Texture" id=3]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="ajpti" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( 0, 3, 6, 3, 6, 8, 0, 8 )
+
+[node name="Die" type="Timer" parent="." index="3"]
+wait_time = 18.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Die" to="." method="_on_Die_timeout"]

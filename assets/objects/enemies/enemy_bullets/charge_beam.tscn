@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/enemies/enemies_bullet/charge_beam.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/sfx/chargebeam.wav" type="AudioStream" id=2]
+
+[node name="charge_beam" type="Position2D"]
+position = Vector2( -7, 0 )
+script = ExtResource( 1 )
+
+[node name="wait_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="delay_timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="beam_charge" type="CPUParticles2D" parent="."]
+position = Vector2( -2, 0 )
+amount = 10
+speed_scale = 3.07
+emission_shape = 1
+emission_sphere_radius = 3.76
+gravity = Vector2( 0, 0 )
+radial_accel = -6.45
+color = Color( 0.792157, 0.862745, 0.623529, 1 )
+
+[node name="charge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -18.909
+autoplay = true
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]

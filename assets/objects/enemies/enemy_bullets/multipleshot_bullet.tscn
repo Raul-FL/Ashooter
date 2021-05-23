@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/weapons/multipleshot_bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/sfx/16_multipleshotbullet.wav" type="AudioStream" id=2]
+
+[node name="multipleshot_bullet" type="Position2D"]
+script = ExtResource( 1 )
+shot_count = 5
+
+[node name="wait_timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -18.909
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]

@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/HUD/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/HUD/HUD_background.png" type="Texture" id=2]
+[ext_resource path="res://assets/HUD/hud_items.sprites/life.tres" type="Texture" id=3]
+[ext_resource path="res://assets/HUD/hud_items.sprites/shield.tres" type="Texture" id=4]
+[ext_resource path="res://assets/HUD/hud_items.sprites/heart.tres" type="Texture" id=5]
+[ext_resource path="res://assets/HUD/hud_items.sprites/shield_bar_empty.tres" type="Texture" id=6]
+[ext_resource path="res://assets/HUD/hud_items.sprites/shield_bar_full.tres" type="Texture" id=7]
+[ext_resource path="res://assets/HUD/hud_items.sprites/lazer_icon.tres" type="Texture" id=8]
+[ext_resource path="res://assets/HUD/hud_items.sprites/hoaming_missil_icon.tres" type="Texture" id=9]
+[ext_resource path="res://assets/HUD/hud_items.sprites/hoaming_shield.tres" type="Texture" id=10]
+[ext_resource path="res://assets/HUD/hud_items.sprites/super_duper_icon.tres" type="Texture" id=11]
+[ext_resource path="res://assets/HUD/hud_items.sprites/area_shot_icon.tres" type="Texture" id=12]
+[ext_resource path="res://assets/HUD/hud_items.sprites/score.tres" type="Texture" id=13]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Life" type="Sprite" parent="."]
+position = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Shield" type="Sprite" parent="."]
+position = Vector2( 3, 11 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="hearts" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="heart0" type="Sprite" parent="hearts"]
+position = Vector2( 27, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="heart1" type="Sprite" parent="hearts"]
+position = Vector2( 35, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="heart2" type="Sprite" parent="hearts"]
+position = Vector2( 43, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="heart3" type="Sprite" parent="hearts"]
+position = Vector2( 51, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="heart4" type="Sprite" parent="hearts"]
+position = Vector2( 59, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="heart5" type="Sprite" parent="hearts"]
+position = Vector2( 67, 3 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 80.0
+margin_bottom = 16.0
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+
+[node name="secondary_weapons" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="lazer" type="Node2D" parent="secondary_weapons"]
+position = Vector2( 83, 6 )
+
+[node name="Sprite" type="Sprite" parent="secondary_weapons/lazer"]
+position = Vector2( -5, -2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="LazerCount" type="Label" parent="secondary_weapons/lazer"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="missle" type="Node2D" parent="secondary_weapons"]
+position = Vector2( 96, 3 )
+
+[node name="Sprite" type="Sprite" parent="secondary_weapons/missle"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="missle_count" type="Label" parent="secondary_weapons/missle"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="shield_protector" type="Node2D" parent="secondary_weapons"]
+position = Vector2( 115, 3 )
+
+[node name="Sprite" type="Sprite" parent="secondary_weapons/shield_protector"]
+texture = ExtResource( 10 )
+centered = false
+
+[node name="sp_count" type="Label" parent="secondary_weapons/shield_protector"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="supa_dupa" type="Node2D" parent="secondary_weapons"]
+position = Vector2( 83, 9 )
+
+[node name="Sprite" type="Sprite" parent="secondary_weapons/supa_dupa"]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="sd_count" type="Label" parent="secondary_weapons/supa_dupa"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="multi_dir" type="Node2D" parent="secondary_weapons"]
+position = Vector2( 106, 10 )
+
+[node name="Sprite" type="Sprite" parent="secondary_weapons/multi_dir"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="multi_dir_count" type="Label" parent="secondary_weapons/multi_dir"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Score" type="Node2D" parent="."]
+position = Vector2( 127, 3 )
+
+[node name="Sprite" type="Sprite" parent="Score"]
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Score_count" type="Label" parent="Score"]
+margin_right = 40.0
+margin_bottom = 14.0

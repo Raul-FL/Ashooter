@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/weapons/bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/weapons/weapons.sprites/simple_shot.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/weapons/weapons.sprites/simple_shot_night.tres" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sfx/skyward_crusader_samples.wav" type="AudioStream" id=4]
+
+[node name="bullet" type="Area2D" groups=[
+"bullet",
+]]
+script = ExtResource( 1 )
+
+[node name="bullet_night" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.75331, 1.80529 )
+scale = Vector2( 1.16667, 1.2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -1.50284, -1.50441 )
+
+[node name="bullet_day" type="Sprite" parent="."]
+scale = Vector2( 1.16667, 1.2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, 0, 0, 5, 6, 5, 6, 0 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 3.5, 3.5 )
+scale = Vector2( 0.65, 0.65 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -19.23
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

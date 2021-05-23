@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/weapons.js-a2db9b3f2f7500f29cda453ed34f24ad.res"
+
+[deps]
+
+files=[ "res://assets/sprites/weapons/weapons.sprites/area_attack.tres", "res://assets/sprites/weapons/weapons.sprites/area_attack_night.tres", "res://assets/sprites/weapons/weapons.sprites/hoaming_shield.tres", "res://assets/sprites/weapons/weapons.sprites/hoaming_shield_night.tres", "res://assets/sprites/weapons/weapons.sprites/missile.tres", "res://assets/sprites/weapons/weapons.sprites/missile_night.tres", "res://assets/sprites/weapons/weapons.sprites/simple_shot.tres", "res://assets/sprites/weapons/weapons.sprites/simple_shot_night.tres" ]
+
+source_file="res://assets/sprites/weapons/weapons.js"
+dest_files=[ "res://.import/weapons.js-a2db9b3f2f7500f29cda453ed34f24ad.res", "res://assets/sprites/weapons/weapons.sprites/area_attack.tres", "res://assets/sprites/weapons/weapons.sprites/area_attack_night.tres", "res://assets/sprites/weapons/weapons.sprites/hoaming_shield.tres", "res://assets/sprites/weapons/weapons.sprites/hoaming_shield_night.tres", "res://assets/sprites/weapons/weapons.sprites/missile.tres", "res://assets/sprites/weapons/weapons.sprites/missile_night.tres", "res://assets/sprites/weapons/weapons.sprites/simple_shot.tres", "res://assets/sprites/weapons/weapons.sprites/simple_shot_night.tres" ]
+
+[params]
+

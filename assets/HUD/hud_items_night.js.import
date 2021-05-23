@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/hud_items_night.js-333e2923360fc26a38b0239f1bbb0db6.res"
+
+[deps]
+
+files=[ "res://assets/HUD/hud_items_night.sprites/area_attack.tres", "res://assets/HUD/hud_items_night.sprites/arrasa_quarterao.tres", "res://assets/HUD/hud_items_night.sprites/heart.tres", "res://assets/HUD/hud_items_night.sprites/hoaming_defense.tres", "res://assets/HUD/hud_items_night.sprites/laser.tres", "res://assets/HUD/hud_items_night.sprites/life.tres", "res://assets/HUD/hud_items_night.sprites/life_bar.tres", "res://assets/HUD/hud_items_night.sprites/missile.tres", "res://assets/HUD/hud_items_night.sprites/score.tres", "res://assets/HUD/hud_items_night.sprites/shield.tres" ]
+
+source_file="res://assets/HUD/hud_items_night.js"
+dest_files=[ "res://.import/hud_items_night.js-333e2923360fc26a38b0239f1bbb0db6.res", "res://assets/HUD/hud_items_night.sprites/area_attack.tres", "res://assets/HUD/hud_items_night.sprites/arrasa_quarterao.tres", "res://assets/HUD/hud_items_night.sprites/heart.tres", "res://assets/HUD/hud_items_night.sprites/hoaming_defense.tres", "res://assets/HUD/hud_items_night.sprites/laser.tres", "res://assets/HUD/hud_items_night.sprites/life.tres", "res://assets/HUD/hud_items_night.sprites/life_bar.tres", "res://assets/HUD/hud_items_night.sprites/missile.tres", "res://assets/HUD/hud_items_night.sprites/score.tres", "res://assets/HUD/hud_items_night.sprites/shield.tres" ]
+
+[params]
+

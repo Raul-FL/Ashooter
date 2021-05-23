@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/items/heart_up.gd" type="Script" id=1]
+[ext_resource path="res://assets/HUD/hud_items.sprites/heart.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/sfx/power_up.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=4]
+
+[node name="heart_up" type="Area2D" groups=[
+"item",
+]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4, 3, 3, 3, 3, -3, -4, -3 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+[connection signal="area_entered" from="." to="." method="_on_heart_up_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

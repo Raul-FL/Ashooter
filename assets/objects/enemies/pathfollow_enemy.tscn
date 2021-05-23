@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/enemies/pathfollow_enemy.gd" type="Script" id=1]
+[ext_resource path="res://src/enemies/behaviors/PathFollow2D.gd" type="Script" id=2]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/timer_straight_shot_explode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/enemies/hidoran.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 134.418, 25.3385, 0, 0, 0, 0, 115.672, 25.2733, 0, 0, 0, 0, 103.347, 43.1329, 0, 0, 0, 0, 110.158, 62.3265, 0, 0, 0, 0, 106.072, 84.341, 0, 0, 0, 0, 112.423, 100.827 )
+}
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+scroll_speed = 10
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 134.418, 25.3385 )
+rotate = false
+script = ExtResource( 2 )
+shot_type = 2
+shot_count = 19
+SHOT = ExtResource( 3 )
+BULLET = ExtResource( 4 )
+PUBLIC_ENEMY = ExtResource( 5 )
+wait_timers = [ 0.0, 1.0, 1.0, 1.0, 0.0, 0.0 ]
+speed_points = [ 2.0, 0.5, 0.5, 0.2, 0.0, 0.0 ]
+stop_in_the_end = true
+
+[node name="Tween" type="Tween" parent="PathFollow2D"]
+
+[node name="wait_time" type="Timer" parent="PathFollow2D"]
+one_shot = true
+
+[node name="dead_timer" type="Timer" parent="PathFollow2D"]
+[connection signal="tween_completed" from="PathFollow2D/Tween" to="PathFollow2D" method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="PathFollow2D/wait_time" to="PathFollow2D" method="_on_wait_time_timeout"]
+[connection signal="timeout" from="PathFollow2D/dead_timer" to="PathFollow2D" method="_on_dead_timer_timeout"]

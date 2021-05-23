@@ -1,0 +1,214 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/objects/HUD/HUD_night.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/HUD/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/player/obj_spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/stages/truestages/ending.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/stages/final_stage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemy_spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu1-o'jehti.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu2-maut.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu3-cerberus.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu6-mjig.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu4-solitude.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/globals/staph.gd" type="Script" id=12]
+[ext_resource path="res://assets/objects/stagelabel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/stage_clear.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/enemies/bossu/finalboss-monster-final.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/items/heart_up.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/objects/items/lazer_up.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/objects/items/super_nova_up.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/objects/items/missile_up.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/sounds/ost/finalstage-03.ogg" type="AudioStream" id=20]
+
+[sub_resource type="Animation" id=1]
+resource_name = "dd"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.0588235, 0.219608, 0.0588235, 1 ), Color( 0.188235, 0.384314, 0.188235, 1 ), Color( 0.545098, 0.67451, 0.0588235, 1 ), Color( 0.607843, 0.737255, 0.0588235, 1 ), Color( 0.792157, 0.862745, 0.623529, 1 ) ]
+}
+
+[node name="Node2D" type="Node2D" groups=[
+"room",
+]]
+__meta__ = {
+"_edit_horizontal_guides_": [ 18.8513 ],
+"_edit_vertical_guides_": [ 850.0 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="." groups=[
+"final",
+]]
+editor/display_folded = true
+visible = false
+margin_right = 160.0
+margin_bottom = 143.0
+color = Color( 0.0588235, 0.219608, 0.0588235, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/dd = SubResource( 1 )
+
+[node name="Player_layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="pause" parent="." instance=ExtResource( 2 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28, 48 )
+nextScene = ExtResource( 4 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
+scroll_speed = 10
+
+[node name="ParallaxLayer" parent="StaticBody2D/ParallaxBackground" index="0"]
+scroll_speed = 10
+
+[node name="AnimatedSprite" parent="StaticBody2D/monster" index="0"]
+frame = 0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 162, 79 )
+speed = 30
+final_stage = true
+enemy = ExtResource( 7 )
+
+[node name="enemy_spawner2" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 317, 79 )
+speed = 30
+final_stage = true
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner3" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 467, 84 )
+speed = 30
+final_stage = true
+enemy = ExtResource( 9 )
+
+[node name="enemy_spawner4" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 620, 83 )
+speed = 30
+final_stage = true
+enemy = ExtResource( 10 )
+
+[node name="enemy_spawner5" parent="Node2D" groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 772, 85 )
+speed = 30
+final_stage = true
+enemy = ExtResource( 11 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="staph" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 925, 29 )
+script = ExtResource( 12 )
+
+[node name="staph2" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 181, 59 )
+script = ExtResource( 12 )
+
+[node name="staph3" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 336, 68 )
+script = ExtResource( 12 )
+
+[node name="staph4" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 481, 56 )
+script = ExtResource( 12 )
+
+[node name="staph5" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 638, 59 )
+script = ExtResource( 12 )
+
+[node name="staph7" type="Position2D" parent="Node2D2" groups=[
+"spawn",
+]]
+position = Vector2( 790, 65 )
+script = ExtResource( 12 )
+
+[node name="Label2" parent="." instance=ExtResource( 13 )]
+margin_left = 12.0
+margin_right = 150.0
+text = "FINAL STAGE"
+stage = 5
+
+[node name="Label" parent="." instance=ExtResource( 14 )]
+modulate = Color( 0.0588235, 0.219608, 0.0588235, 1 )
+
+[node name="enemy_spawner6" parent="." groups=[
+"spawn",
+] instance=ExtResource( 6 )]
+position = Vector2( 920, 84 )
+speed = 0
+stage_clear = true
+enemy = ExtResource( 15 )
+
+[node name="pause2" parent="." instance=ExtResource( 2 )]
+
+[node name="heart_up" parent="." instance=ExtResource( 16 )]
+position = Vector2( 697, 65 )
+
+[node name="power_up" parent="." instance=ExtResource( 17 )]
+position = Vector2( 823, 49 )
+
+[node name="super_nova_up" parent="." instance=ExtResource( 18 )]
+position = Vector2( 837, 71 )
+
+[node name="missile_up" parent="." instance=ExtResource( 19 )]
+position = Vector2( 823, 113 )
+
+[node name="heart_up2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 835, 92 )
+
+[node name="missile_up2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 113, 104 )
+
+[node name="power_up2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 264, 54 )
+
+[node name="power_up3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 407, 110 )
+
+[node name="super_nova_up2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 540, 104 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = 3.0
+autoplay = true
+
+[editable path="HUD"]
+
+[editable path="StaticBody2D"]
+
+[editable path="StaticBody2D/monster"]

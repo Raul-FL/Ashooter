@@ -1,0 +1,2159 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/objects/HUD/HUD_night.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/HUD/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/player/obj_spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/stages/truestages/stage5.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/stages/TileMap3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemy_spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/enemies/ajpti.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/multipleshot_bullet.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/enemies/azvoult.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/enemies/anvi.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/enemies/pathfollow_enemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/charge_beam.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/enemies/mizvrat.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/enemies/bossu/bossu6-mjig.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/globals/staph.gd" type="Script" id=17]
+[ext_resource path="res://assets/objects/stagelabel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/objects/stage_clear.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/items/super_nova_up.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/objects/items/heart_up.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/sounds/ost/stage2reals.ogg" type="AudioStream" id=22]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 134.418, 25.3385, 0, 0, 0, 0, 122, 26, 0, 0, 0, 0, 117, 108, 0, 0, 0, 0, 129, 26, 0, 0, 0, 0, 133, 111, 0, 0, 0, 0, 125, 26 )
+}
+
+[node name="Node2D" type="Node2D" groups=[
+"room",
+]]
+__meta__ = {
+"_edit_horizontal_guides_": [ 18.8513 ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Player_layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="pause" parent="." instance=ExtResource( 2 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28, 48 )
+nextScene = ExtResource( 4 )
+
+[node name="TileMap" parent="." instance=ExtResource( 5 )]
+scroll_speed = 10
+
+[node name="ParallaxLayer" parent="TileMap/ParallaxBackground" index="0"]
+scroll_speed = 7
+
+[node name="Node2D" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 209, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner10" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 206, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner11" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 203, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner12" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 200, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner2" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 212, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner3" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 215, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner4" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 218, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner5" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 221, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner6" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 224, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner7" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 227, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner8" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 230, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner9" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 233, 57 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 224, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner10" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 221, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner11" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 218, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner12" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 215, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner2" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 227, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner3" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 230, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner4" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 233, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner5" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 236, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner6" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 239, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner7" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 242, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner8" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 245, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner9" parent="Node2D2" instance=ExtResource( 6 )]
+position = Vector2( 248, 89 )
+speed = 10
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 265, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner19" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 301, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner10" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 262, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner20" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 298, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner11" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 259, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner21" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 295, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner12" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 256, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner22" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 292, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner2" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 268, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner23" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 304, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner3" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 271, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner24" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 307, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner4" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 274, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner18" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 310, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner5" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 277, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner13" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 313, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner6" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 280, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner14" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 316, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner7" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 283, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner16" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 319, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner26" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 328, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner8" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 286, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner17" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 322, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner27" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 331, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner9" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 289, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner15" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 325, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="enemy_spawner25" parent="Node2D3" instance=ExtResource( 6 )]
+position = Vector2( 334, 117 )
+BEHAVIOR = ExtResource( 7 )
+enemy = ExtResource( 8 )
+
+[node name="Node2D4" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D4" instance=ExtResource( 6 )]
+position = Vector2( 268, 50 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner2" parent="Node2D4" instance=ExtResource( 6 )]
+position = Vector2( 283, 88 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner3" parent="Node2D4" instance=ExtResource( 6 )]
+position = Vector2( 315, 65 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="Node2D6" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D6" instance=ExtResource( 6 )]
+position = Vector2( 801, 53 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner2" parent="Node2D6" instance=ExtResource( 6 )]
+position = Vector2( 801, 94 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner3" parent="Node2D6" instance=ExtResource( 6 )]
+position = Vector2( 824, 72 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner5" parent="Node2D6" instance=ExtResource( 6 )]
+position = Vector2( 843, 37 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="enemy_spawner4" parent="Node2D6" instance=ExtResource( 6 )]
+position = Vector2( 847, 117 )
+speed = 13
+shot_interval = 3
+initial_wait_time = 3
+SHOT = ExtResource( 9 )
+BULLET = ExtResource( 10 )
+enemy = ExtResource( 11 )
+
+[node name="Node2D5" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy_spawner" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 362, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner107" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 362, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner55" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 415, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner202" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 415, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner29" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 389, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner150" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 389, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner89" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 442, 34 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner260" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 469, 38 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner206" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 442, 34 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner221" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 469, 38 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner14" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 376, 32 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner118" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 376, 32 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner66" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 429, 34 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner195" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 429, 34 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner35" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 403, 37 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner196" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 403, 37 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner100" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 456, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner240" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 483, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner299" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 507, 38 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner273" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 495, 33 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner324" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 519, 36 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner167" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 456, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner251" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 483, 35 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner306" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 507, 38 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner280" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 495, 33 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner332" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 519, 36 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner2" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner131" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner75" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner156" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner39" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner116" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner64" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 42 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner257" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 46 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner199" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 42 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner218" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 46 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner17" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 40 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner190" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 40 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner98" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 42 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner163" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 42 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner49" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 45 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner110" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 45 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner58" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner246" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 41 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner302" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 44 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner276" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 41 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner328" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 44 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner179" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 43 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner230" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 41 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner292" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 44 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner266" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 41 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner319" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 44 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner3" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 361, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner132" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 361, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner76" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 414, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner160" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 414, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner40" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 388, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner139" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 388, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner83" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 441, 48 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner243" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 468, 52 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner174" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 441, 48 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner227" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 468, 52 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner18" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 375, 46 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner128" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 375, 46 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner73" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 428, 48 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner197" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 428, 48 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner38" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 402, 51 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner177" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 402, 51 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner94" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 455, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner247" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 482, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner303" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 506, 52 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner277" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 494, 47 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner329" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 518, 50 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner184" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 455, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner214" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 482, 49 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner312" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 506, 52 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner286" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 494, 47 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner338" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 518, 50 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner4" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 364, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner133" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 364, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner77" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 417, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner165" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 417, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner41" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 391, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner141" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 391, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner84" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 444, 58 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner236" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 471, 62 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner154" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 444, 58 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner238" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 471, 62 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner19" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 378, 56 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner105" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 378, 56 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner53" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 431, 58 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner166" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 431, 58 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner27" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 405, 61 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner120" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 405, 61 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner67" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 458, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner233" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 485, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner294" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 509, 62 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner268" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 497, 57 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner321" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 521, 60 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner148" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 458, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner254" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 485, 59 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner309" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 509, 62 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner283" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 497, 57 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner335" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 521, 60 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner5" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 359, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner134" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 359, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner78" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 412, 69 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner187" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 412, 69 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner42" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 386, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner144" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 386, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner87" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 439, 66 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner211" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 466, 70 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner119" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 439, 66 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner231" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 466, 70 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner20" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 373, 64 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner180" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 373, 64 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner95" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 426, 66 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner130" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 426, 66 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner48" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 400, 69 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner142" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 400, 69 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner85" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 453, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner244" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 480, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner300" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 504, 70 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner274" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 492, 65 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner326" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 516, 68 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner175" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 453, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner228" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 480, 67 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner291" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 504, 70 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner265" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 492, 65 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner316" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 516, 68 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner6" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 365, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner135" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 365, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner79" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 418, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner169" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 418, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner43" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 392, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner114" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 392, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner62" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 445, 73 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner258" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 472, 77 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner204" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 445, 73 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner219" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 472, 77 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner21" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 379, 71 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner121" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 379, 71 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner68" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 432, 73 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner170" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 432, 73 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner36" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 406, 76 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner124" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 406, 76 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner69" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 459, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner235" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 486, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner296" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 510, 77 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner270" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 498, 72 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner322" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 522, 75 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner152" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 459, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner210" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 486, 74 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner289" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 510, 77 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner263" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 498, 72 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner315" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 522, 75 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner7" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 360, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner136" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 360, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner80" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 413, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner159" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 413, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner44" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 387, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner126" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 387, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner71" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 440, 80 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner242" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 467, 84 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner173" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 440, 80 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner223" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 467, 84 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner22" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 374, 78 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner112" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 374, 78 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner60" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 427, 80 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner189" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 427, 80 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner32" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 401, 83 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner115" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 401, 83 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner63" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 454, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner234" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 481, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner295" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 505, 84 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner269" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 493, 79 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner320" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 517, 82 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner151" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 454, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner209" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 481, 81 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner305" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 505, 84 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner279" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 493, 79 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner331" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 517, 82 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner8" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner137" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner81" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner162" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner45" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner168" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner93" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 89 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner241" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 93 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner171" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 89 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner222" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 93 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner23" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 87 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner149" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 87 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner88" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 89 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner183" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 89 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner47" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 92 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner127" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 92 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner72" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner232" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 88 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner293" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 91 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner267" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 88 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner318" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 91 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner147" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 90 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner253" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 88 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner308" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 91 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner282" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 88 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner334" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 91 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner9" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 364, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner117" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 364, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner65" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 417, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner172" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 417, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner34" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 391, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner193" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 391, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner99" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 444, 95 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner239" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 471, 99 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner164" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 444, 95 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner213" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 471, 99 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner16" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 378, 93 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner106" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 378, 93 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner54" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 431, 95 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner140" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 431, 95 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner28" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 405, 98 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner153" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 405, 98 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner90" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 458, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner259" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 485, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner311" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 509, 99 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner285" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 497, 94 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner337" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 521, 97 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner205" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 458, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner220" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 485, 96 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner288" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 509, 99 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner262" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 497, 94 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner313" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 521, 97 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner10" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 360, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner108" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 360, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner56" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 413, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner122" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 413, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner30" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 387, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner201" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 387, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner102" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 440, 104 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner256" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 467, 108 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner198" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 440, 104 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner217" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 467, 108 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner15" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 374, 102 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner200" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 374, 102 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner101" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 427, 104 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner194" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 427, 104 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner50" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 401, 107 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner143" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 401, 107 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner86" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 454, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner237" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 481, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner297" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 505, 108 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner271" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 493, 103 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner323" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 517, 106 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner158" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 454, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner252" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 481, 105 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner307" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 505, 108 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner281" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 493, 103 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner333" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 517, 106 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner11" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 363, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner138" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 363, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner82" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 416, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner146" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 416, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner46" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 390, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner181" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 390, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner96" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 443, 112 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner249" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 470, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner186" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 443, 112 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner216" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 470, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner24" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 377, 110 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner125" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 377, 110 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner70" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 430, 112 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner192" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 430, 112 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner37" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 404, 115 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner129" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 404, 115 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner74" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 457, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner255" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 484, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner310" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 508, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner284" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 496, 111 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner336" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 520, 114 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner191" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 457, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner226" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 484, 113 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner287" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 508, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner261" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 496, 111 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner314" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 520, 114 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner12" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 359, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner207" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 359, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner103" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 412, 121 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner145" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 412, 121 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner51" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 386, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner111" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 386, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner59" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 439, 118 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner250" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 466, 122 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner188" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 439, 118 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner225" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 466, 122 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner25" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 373, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner113" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 373, 116 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner61" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 426, 118 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner203" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 426, 118 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner33" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 400, 121 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner157" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 400, 121 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner91" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 453, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner245" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 480, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner301" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 504, 122 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner275" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 492, 117 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner327" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 516, 120 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner176" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 453, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner229" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 480, 119 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner290" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 504, 122 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner264" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 492, 117 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner317" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 516, 120 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner13" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner208" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 367, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner104" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner155" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 420, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner52" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner161" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 394, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner92" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 125 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner212" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 129 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner123" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 447, 125 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner224" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 474, 129 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner26" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 123 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner109" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 381, 123 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner57" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 125 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner178" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 434, 125 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner31" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 128 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner182" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 408, 128 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner97" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner248" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 124 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner304" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 127 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner278" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 124 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner330" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 127 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner185" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 461, 126 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner215" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 488, 124 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner298" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 512, 127 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner272" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 500, 124 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="enemy_spawner325" parent="Node2D5" instance=ExtResource( 6 )]
+position = Vector2( 524, 127 )
+speed = 10
+enemy = ExtResource( 12 )
+
+[node name="Path2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 525, 16 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+SHOT = ExtResource( 14 )
+BULLET = null
+PUBLIC_ENEMY = ExtResource( 15 )
+wait_timers = [ 1.0, 4.0, 4.0, 4.0, 4.0, 4.0 ]
+speed_points = [ 2.0, 4.0, 4.0, 4.0, 4.0, 4.0 ]
+stop_in_the_end = false
+
+[node name="enemy_spawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 950, 74 )
+stage_clear = true
+enemy = ExtResource( 16 )
+
+[node name="staph" type="Position2D" parent="."]
+position = Vector2( 980, 31 )
+script = ExtResource( 17 )
+
+[node name="Label2" parent="." instance=ExtResource( 18 )]
+text = "STAGE 4"
+stage = 3
+
+[node name="Label" parent="." instance=ExtResource( 19 )]
+
+[node name="pause2" parent="." instance=ExtResource( 2 )]
+
+[node name="super_nova_up" parent="." instance=ExtResource( 20 )]
+position = Vector2( 770, 74 )
+
+[node name="heart_up" parent="." instance=ExtResource( 21 )]
+position = Vector2( 548, 85 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = 3.0
+autoplay = true
+
+[editable path="TileMap"]
+
+[editable path="TileMap/ParallaxBackground"]
+
+[editable path="Path2D"]

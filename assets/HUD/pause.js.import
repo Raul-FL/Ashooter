@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/pause.js-c2a1786f84dd6f88e5cf5ab04a54ebc1.res"
+
+[deps]
+
+files=[ "res://assets/HUD/pause.sprites/back.tres", "res://assets/HUD/pause.sprites/main.tres", "res://assets/HUD/pause.sprites/menu.tres", "res://assets/HUD/pause.sprites/paused.tres", "res://assets/HUD/pause.sprites/quit.tres", "res://assets/HUD/pause.sprites/resume.tres", "res://assets/HUD/pause.sprites/to.tres" ]
+
+source_file="res://assets/HUD/pause.js"
+dest_files=[ "res://.import/pause.js-c2a1786f84dd6f88e5cf5ab04a54ebc1.res", "res://assets/HUD/pause.sprites/back.tres", "res://assets/HUD/pause.sprites/main.tres", "res://assets/HUD/pause.sprites/menu.tres", "res://assets/HUD/pause.sprites/paused.tres", "res://assets/HUD/pause.sprites/quit.tres", "res://assets/HUD/pause.sprites/resume.tres", "res://assets/HUD/pause.sprites/to.tres" ]
+
+[params]
+

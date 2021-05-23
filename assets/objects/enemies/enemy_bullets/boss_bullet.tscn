@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/enemies/enemies_bullet/enemy_bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/weapons/weapons.sprites/simple_shot.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/enemy_weapons/bossu1-Bullet.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sfx/14_bossbullet.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.0227
+
+[node name="boss_bullet" type="Area2D" groups=[
+"enemy_bullet",
+]]
+script = ExtResource( 1 )
+
+[node name="bullet_night" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.75331, 1.80529 )
+scale = Vector2( 1.16667, 1.2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -1.50284, -1.50441 )
+
+[node name="bullet_day" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 23.25, 21.75 )
+scale = Vector2( 2.375, 2.225 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 22, 22 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -17.858
+autoplay = true
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

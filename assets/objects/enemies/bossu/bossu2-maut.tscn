@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/enemies/sample_boss.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu2a.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/enemies/boss_sheit.sprites/bossu3.tres" type="Texture" id=3]
+[ext_resource path="res://assets/objects/enemies/enemies_behaviors/wave_movement.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/multipleshot_bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemies/enemy_bullets/enemy_bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sounds/sfx/AudioStreamPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/weapons/sound_sfx/sfx_supernova.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="maut" type="Area2D" groups=[
+"enemy",
+"boss",
+]]
+script = ExtResource( 1 )
+hp = 110
+score = 150
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 2, 34, -2, 34, -2, -1, -8, -3, -8, -8, -5, -11, -10, -20, -10, -27, -4, -34, 4, -34 )
+
+[node name="wave_movement" parent="." instance=ExtResource( 4 )]
+wave_lenght = 30
+wave_speed = 5.0
+
+[node name="multipleshot_bullet" parent="." instance=ExtResource( 5 )]
+position = Vector2( -2, -24 )
+shoot = ExtResource( 6 )
+shot_count = 18
+shot_angle_gap_children = 60
+
+[node name="wait_time_to_stop" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_ojehti_tree_exiting"]
+[connection signal="timeout" from="wait_time_to_stop" to="." method="_on_wait_time_to_stop_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
+
+[editable path="multipleshot_bullet"]

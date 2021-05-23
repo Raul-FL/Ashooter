@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stageum-01.ogg-91a012200603678cfcb9dd96dbfd3f51.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/ost/stageum-01.ogg"
+dest_files=[ "res://.import/stageum-01.ogg-91a012200603678cfcb9dd96dbfd3f51.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

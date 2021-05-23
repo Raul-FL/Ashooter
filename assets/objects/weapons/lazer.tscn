@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/weapons/lazer.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/weapons/lazers.sprites/lazer_night.tres" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/weapons/lazers.sprites/lazer.tres" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sfx/7_lazer.wav" type="AudioStream" id=4]
+
+[node name="lazer" type="Area2D" groups=[
+"beam",
+]]
+position = Vector2( 0, 1 )
+script = ExtResource( 1 )
+
+[node name="lazer_night" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+scale = Vector2( 1.25, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="lazer_day" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -1 )
+scale = Vector2( 1.25, 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 0, -1, 0, 2, 160, 2, 160, -1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.212
+autoplay = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/boss_sheit.js-7915649e50f86cac2010eda89182f550.res"
+
+[deps]
+
+files=[ "res://assets/sprites/enemies/boss_sheit.sprites/bossu1.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu2.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu2a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu3.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu3a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu4.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu4a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu5.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu5a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu6.tres", "res://assets/sprites/enemies/boss_sheit.sprites/final-bossu1.tres", "res://assets/sprites/enemies/boss_sheit.sprites/final-bossu2.tres" ]
+
+source_file="res://assets/sprites/enemies/boss_sheit.js"
+dest_files=[ "res://.import/boss_sheit.js-7915649e50f86cac2010eda89182f550.res", "res://assets/sprites/enemies/boss_sheit.sprites/bossu1.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu2.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu2a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu3.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu3a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu4.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu4a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu5.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu5a.tres", "res://assets/sprites/enemies/boss_sheit.sprites/bossu6.tres", "res://assets/sprites/enemies/boss_sheit.sprites/final-bossu1.tres", "res://assets/sprites/enemies/boss_sheit.sprites/final-bossu2.tres" ]
+
+[params]
+
